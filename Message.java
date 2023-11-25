@@ -36,7 +36,8 @@ public final class Message {
      * @param initialUserName The username of the sender.
      * @param initialTextMessage The text content of the message.
      */
-    public Message(final String initialUserName, final String initialTextMessage) {
+    public Message(final String initialUserName, 
+                   final String initialTextMessage) {
         this.userName = initialUserName;
         this.textMessage = initialTextMessage;
         this.messageTime = new Date().getTime();
