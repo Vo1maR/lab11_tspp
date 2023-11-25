@@ -36,7 +36,7 @@ public final class Message {
      * @param initialUserName The username of the sender.
      * @param initialTextMessage The text content of the message.
      */
-    public Message(final String initialUserName, 
+    public Message(final String initialUserName,
                    final String initialTextMessage) {
         this.userName = initialUserName;
         this.textMessage = initialTextMessage;
