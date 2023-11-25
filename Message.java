@@ -1,5 +1,5 @@
 /**
- * Package-level documentation goes here.
+ * Represents a message in the system.
  */
 package com.example.myapplication.models;
 
@@ -9,14 +9,26 @@ import java.util.Date;
  * Represents a message in the system.
  */
 public final class Message {
+    /**
+     * The username of the sender.
+     */
     private String userName;
+
+    /**
+     * The text content of the message.
+     */
     private String textMessage;
+
+    /**
+     * The timestamp of the message.
+     */
     private long messageTime;
 
     /**
      * Default constructor.
      */
-    public Message() {}
+    public Message() {
+    }
 
     /**
      * Creates a new message with the given username and text message.
