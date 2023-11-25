@@ -38,7 +38,7 @@ public class TestCases {
     public static int testSendMessage() {
         TestCases testCases = new TestCases();
         // Вызываем метод sendMessage с неверным временем
-        int result = testCases.sendMessage("Не можу заснути, просто жесть", "testUser", new Date().getTime());
+        int result = testCases.sendMessage("Не можу заснути, просто жесть", "testUser", new Date().getTime()-1);
 
         // Печатаем результат
         return result;
