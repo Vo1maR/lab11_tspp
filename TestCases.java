@@ -6,27 +6,27 @@ public class TestCases {
         result_1 = testSendMessage();
         String ispassed = "Failed";
         if(result_1 == 1){
-        ispassed = "Passed"
+        ispassed = "Passed";
         }
-        System.out.println("TC1: Очікуємий результат = 1, отриманий результат = " + result_1 + " ; " + ispassed)
-        ispassed = "Failed"
+        System.out.println("TC1: Очікуємий результат = 1, отриманий результат = " + result_1 + " ; " + ispassed);
+        ispassed = "Failed";
         result_2 = testSendMessageMoreThen350();
         if(result_2 == -1){
-        ispassed = "Passed"
+        ispassed = "Passed";
         }
-        System.out.println("TC2: Очікуємий результат = -1, отриманий результат = " + result_2 + " ; " + ispassed)
-        ispassed = "Failed"
+        System.out.println("TC2: Очікуємий результат = -1, отриманий результат = " + result_2 + " ; " + ispassed);
+        ispassed = "Failed";
         result_3 = testSendMessageEmptyText();
         if(result_3 == -1){
-        ispassed = "Passed"
+        ispassed = "Passed";
         }
-        System.out.println("TC3: Очікуємий результат = -1, отриманий результат = " + result_3 + " ; " + ispassed)
+        System.out.println("TC3: Очікуємий результат = -1, отриманий результат = " + result_3 + " ; " + ispassed);
         result_4 = testSendMessageInvalidTime();
-        ispassed = "Failed"
+        ispassed = "Failed";
         if(result_4 == -2){
-        ispassed = "Passed"
+        ispassed = "Passed";
         }
-        System.out.println("TC4: Очікуємий результат = -1, отриманий результат = " + result_4 + " ; " + ispassed)
+        System.out.println("TC4: Очікуємий результат = -1, отриманий результат = " + result_4 + " ; " + ispassed);
     }
 
     public static int testSendMessage() {
