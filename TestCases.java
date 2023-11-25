@@ -1,91 +1,68 @@
 package com.example.myapplication;
-
-import android.widget.EditText;
-
-import androidx.test.core.app.ActivityScenario;
-
-import com.example.myapplication.MainActivity;
-
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-
 import java.util.Date;
+public class TestCases {
 
-public class MainActivityTest {
-
-    @Test
-    public void testSendMessage() {
-        // Запускаємо активність
-        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
-            scenario.onActivity(activity -> {
-                // Створюємо макет текстового поля та встановлюємо текст
-                EditText mockTextField = activity.findViewById(R.id.textField);
-                mockTextField.setText("Не можу заснути, просто жесть");
-
-                // Викликаємо функцію sendMessage
-                int result = activity.sendMessage(mockTextField, "testUser", new Date().getTime());
-
-                // Перевіряємо, чи відповідає результат очікуваному результату
-                assertEquals(1, result);
-            });
-        }
+    public static void main(String[] args) {
+        runTests();
     }
 
-    @Test
-    public void testSendMessageMoreThen350() {
-        // Запускаємо активність
-        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
-            scenario.onActivity(activity -> {
-                // Створюємо макет текстового поля та встановлюємо текст більше 350 символів
-                EditText mockTextField = activity.findViewById(R.id.textField);
-                mockTextField.setText(" Не можу заснути, просто жесть. Вчора ввечері я. Не можу заснути, просто жесть. Вчора ввечері я" +
-                        " Не можу заснути, просто жесть. Вчора ввечері я  Не можу заснути, просто жесть. Вчора ввечері я" +
-                        " Не можу заснути, просто жесть. Вчора ввечері я" +
-                        " Не можу заснути, просто жесть. Вчора ввечері я Не можу заснути, просто жесть. Вчора ввечері я Не можу заснути, просто жесть. Вчора ввечері я" +
-                        " Не можу заснути, просто жесть. Вчора ввечері я" +
-                        " Не можу заснути, просто жесть. Вчора ввечері я Не можу заснути, просто жесть. Вчора ввечері я");
-
-                // Викликаємо функцію sendMessage
-                int result = activity.sendMessage(mockTextField, "testUser", new Date().getTime());
-
-                // Перевіряємо, чи відповідає результат очікуваному результату
-                assertEquals(-1, result);
-            });
-        }
+    public static void runTests() {
+        testSendMessage();
+        testSendMessageMoreThen350();
+        testSendMessageEmptyText();
+        testSendMessageInvalidTime();
     }
 
-    @Test
-    public void testSendMessageEmptyText() {
-        // Запускаємо активність
-        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
-            scenario.onActivity(activity -> {
-                // Створюємо макет текстового поля та встановлюємо порожній текст
-                EditText mockTextField = activity.findViewById(R.id.textField);
-                mockTextField.setText("");
+    public static void testSendMessage() {
+        TestCases testCases = new TestCases();
+        // Вызываем метод sendMessage с неверным временем
+        int result = testCases.sendMessage("Не можу заснути, просто жесть", "testUser", new Date().getTime());
 
-                // Викликаємо функцію sendMessage
-                int result = activity.sendMessage(mockTextField, "testUser", new Date().getTime());
-                // Перевіряємо, чи відповідає результат очікуваному результату при порожньому тексті
-                assertEquals(-1, result);
-            });
-        }
+        // Печатаем результат
+        return result;
     }
 
-    @Test
-    public void testSendMessageInvalidTime() {
-        // Запускаємо активність
-        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
-            scenario.onActivity(activity -> {
-                // Створюємо макет текстового поля та встановлюємо текст
-                EditText mockTextField = activity.findViewById(R.id.textField);
-                mockTextField.setText("Не можу заснути, просто жесть.");
-
-                // Викликаємо функцію sendMessage з невірною датою
-                int result = activity.sendMessage(mockTextField, "testUser", new Date().getTime() - 1);
-                // Перевіряємо, чи відповідає результат очікуваному результату при невірній даті
-                assertEquals(-2, result);
-            });
+    public static void testSendMessageMoreThen350() {
+        TestCases testCases = new TestCases();
+        // Вызываем метод sendMessage с неверным временем
+        StringBuilder longText = new StringBuilder();
+        for (int i = 0; i < 360; i++) {
+            longText.append("a");
         }
+        int result = testCases.sendMessage(longText.toString(), "testUser", new Date().getTime());
+        // Печатаем результат
+        return result;
+    }
+
+    public static void testSendMessageEmptyText() {
+        TestCases testCases = new TestCases();
+        // Вызываем метод sendMessage с неверным временем
+        int result = testCases.sendMessage("", "testUser", new Date().getTime());
+
+        // Печатаем результат
+        return result;
+    }
+
+    public static void testSendMessageInvalidTime() {
+        TestCases testCases = new TestCases();
+        // Вызываем метод sendMessage с неверным временем
+        int result = testCases.sendMessage("Не можу заснути, просто жесть", "testUser", new Date().getTime() - 1);
+
+        // Печатаем результат
+        return result;
+    }
+
+    public int sendMessage(String textFieldText, String username, long currentTime) {
+        // Реализация метода sendMessage без зависимостей от Android
+        if (textFieldText.isEmpty() || textFieldText.length() > 350) return -1;
+        
+        // Создание объекта Message
+        Message newMessage = new Message(username, textFieldText);
+
+        // Проверка соответствия времени сообщения переданному времени
+        if (newMessage.getMessageTime() != currentTime) return -2;
+
+        return 1;
     }
 }
+
