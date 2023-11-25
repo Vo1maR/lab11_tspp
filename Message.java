@@ -38,3 +38,4 @@ public class Message {
     public void setMessageTime(long messageTime) {
         this.messageTime = messageTime;
     }
+}
