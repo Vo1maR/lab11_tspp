@@ -26,6 +26,7 @@ public class TestCases {
         ispassed = "Passed";
         }
         System.out.println("TC4: Очікуємий результат = -1, отриманий результат = " + result_4 + " ; " + ispassed);
+        System.exit(0);
     }
 
     public static int testSendMessage() {
