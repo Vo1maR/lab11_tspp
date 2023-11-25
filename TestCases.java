@@ -1,6 +1,6 @@
 import java.util.Date;
 public class TestCases {
-
+    @JvmStatic
     public static void main(String[] args) {
         runTests();
     }
