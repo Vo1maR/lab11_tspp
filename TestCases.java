@@ -4,7 +4,7 @@ public class TestCases {
     public static void main(String[] args) {
         int result_1 = testSendMessage();
         String ispassed = "Passed";
-        bool isAllPassed = true;
+        boolean isAllPassed = true;
         if(result_1 != 1){
         ispassed = "Failed";
         isAllPassed = false;
