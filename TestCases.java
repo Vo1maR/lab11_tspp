@@ -2,7 +2,6 @@ import java.util.Date;
 public class TestCases {
     
     public static void main(String[] args) {
-        System.out.println("a");
         int result_1 = testSendMessage();
         String ispassed = "Failed";
         if(result_1 == 1){
