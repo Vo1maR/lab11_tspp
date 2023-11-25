@@ -1,7 +1,8 @@
 import java.util.Date;
 public class TestCases {
-    @JvmStatic
+    
     public static void main(String[] args) {
+        System.out.println("a");
         runTests();
     }
 
