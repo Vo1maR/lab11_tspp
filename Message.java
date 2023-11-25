@@ -1,3 +1,6 @@
+/**
+ * Package-level documentation goes here.
+ */
 package com.example.myapplication.models;
 
 import java.util.Date;
