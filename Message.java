@@ -33,12 +33,12 @@ public final class Message {
     /**
      * Creates a new message with the given username and text message.
      *
-     * @param userName     The username of the sender.
-     * @param textMessage  The text content of the message.
+     * @param initialUserName The username of the sender.
+     * @param initialTextMessage The text content of the message.
      */
-    public Message(final String userName, final String textMessage) {
-        this.userName = userName;
-        this.textMessage = textMessage;
+    public Message(final String initialUserName, final String initialTextMessage) {
+        this.userName = initialUserName;
+        this.textMessage = initialTextMessage;
         this.messageTime = new Date().getTime();
     }
 
